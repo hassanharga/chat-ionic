@@ -1,0 +1,30 @@
+ion-content {
+    --ion-background-color: var(--initial-color);
+    .logo {
+        text-align: center;
+        img {
+            width: 90%;
+            height: 50px;
+        }
+    }
+    ion-list {
+        margin-top: 100px;
+        ion-item {
+            --ion-background-color: white;
+            border-radius: 3px;
+            ion-input {
+                --padding-start: 10px;
+            }
+        }
+        .login{
+            --background: white;
+            color: #64b5f6;
+            --border-radius: 5px;
+            height: 40px;
+        }
+        .signup {
+            color: white;
+        }
+    }
+}
+    
