@@ -15,11 +15,14 @@ ion-content {
             ion-input {
                 --padding-start: 10px;
             }
+            ion-icon {
+                color: var(--initial-color);
+            }
         }
         .login{
             --background: white;
-            color: #64b5f6;
-            --border-radius: 5px;
+            color: var(--initial-color);
+            --border-radius: 3px;
             height: 40px;
         }
         .signup {
