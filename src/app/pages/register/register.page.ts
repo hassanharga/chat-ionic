@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AuthService } from 'src/app/providers/auth.service';
+import { AlertController, LoadingController } from '@ionic/angular';
+import { TokenService } from 'src/app/providers/token.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -7,7 +9,60 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterPage implements OnInit {
 
-  constructor() { }
+  username: string;
+  email: string;
+  password: string;
+  loading: any;
+  loaderToShow: any;
+
+  constructor(
+    private authSer: AuthService,
+    public alertController: AlertController,
+    private tokSer: TokenService,
+    public loadingController: LoadingController
+  ) { }
+
+  registerUser() {
+    // this.showLoader();
+    this.authSer.registerUser(this.username, this.email, this.password).subscribe(
+      data => {
+        console.log(data);
+        this.tokSer.setToken(data.token);
+      },
+      err => {
+        // console.log(err);
+        if (err.error.msg) {
+          this.showErrorAlert(err.error.msg[0].message);
+        }
+        if (err.error.message) {
+          this.showErrorAlert(err.error.message);
+        }
+      }
+    );
+    // console.log(this.username, this.email, this.password);
+  }
+
+  async showErrorAlert(msg) {
+    const alert = await this.alertController.create({
+      header: 'Sign UP Error',
+      // subHeader: `${msg}`,
+      message: `${msg}`,
+      buttons: ['OK'],
+      cssClass: 'alert-css'
+    });
+    await alert.present();
+  }
+  async showLoader() {
+    const loading = await this.loadingController.create({
+      message: 'Loading...',
+      duration: 2000
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+
+    console.log('Loading dismissed!');
+  }
 
   ngOnInit() {
   }

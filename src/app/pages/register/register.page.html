@@ -1,9 +1,39 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
+<ion-header no-border>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class='ion-padding' >
-  <h1>register Page</h1>
+<ion-content class='ion-padding  sign' >
+  <!-- <h1>login Page</h1>
+  <ion-button (click)="registerPage()">
+    Register Page
+  </ion-button> -->
+  <div class="ion-padding ion-margin-bottom ">
+    <div  class="logo">
+      <h2>Chat App</h2>
+      <!-- <img src="http://placehold.it/50x50" /> -->
+    </div>
+    <ion-list>
+      <ion-item class="ion-margin-bottom">
+        <ion-icon name="mail" ></ion-icon>
+        <ion-input type="text" [(ngModel)]="username" name="username" placeholder="username"></ion-input>
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-icon name="lock" ></ion-icon>
+        <ion-input type="email" [(ngModel)]="email" name="email" placeholder="Email"></ion-input>
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
+        <ion-icon name="md-key" ></ion-icon>
+        <ion-input type="password" [(ngModel)]="password" name="password" placeholder="password"></ion-input>
+      </ion-item>
+      
+      <ion-button  expand="block" class="login" (click)="registerUser()" >
+        Sign Up
+      </ion-button>
+    </ion-list>
+  </div>
 </ion-content>
