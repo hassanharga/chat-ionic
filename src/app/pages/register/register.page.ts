@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/providers/auth.service';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { TokenService } from 'src/app/providers/token.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -19,18 +20,19 @@ export class RegisterPage implements OnInit {
     private authSer: AuthService,
     public alertController: AlertController,
     private tokSer: TokenService,
-    public loadingController: LoadingController
+    public loadingController: LoadingController,
+    public router: Router
   ) { }
 
   registerUser() {
     // this.showLoader();
     this.authSer.registerUser(this.username, this.email, this.password).subscribe(
       data => {
-        console.log(data);
+        // this.showLoader();
         this.tokSer.setToken(data.token);
+        this.router.navigate(['tabs']);
       },
       err => {
-        // console.log(err);
         if (err.error.msg) {
           this.showErrorAlert(err.error.msg[0].message);
         }
@@ -39,7 +41,6 @@ export class RegisterPage implements OnInit {
         }
       }
     );
-    // console.log(this.username, this.email, this.password);
   }
 
   async showErrorAlert(msg) {

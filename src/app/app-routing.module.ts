@@ -5,8 +5,9 @@ const routes: Routes = [
   // { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
   // { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
-  { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
+  { path: 'tabs', loadChildren: './pages/tabs/tabs.module#TabsPageModule' },
 ];
 
 @NgModule({
