@@ -30,7 +30,7 @@ export class RegisterPage implements OnInit {
       data => {
         // this.showLoader();
         this.tokSer.setToken(data.token);
-        this.router.navigate(['tabs']);
+        this.router.navigate(['tabs/streams']);
       },
       err => {
         if (err.error.msg) {

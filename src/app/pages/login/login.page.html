@@ -17,13 +17,13 @@
     <ion-list>
       <ion-item class="ion-margin-bottom">
         <ion-icon name="mail" ></ion-icon>
-        <ion-input type="text" placeholder="username"></ion-input>
+        <ion-input type="text" placeholder="username" name="username" [(ngModel)]="user"></ion-input>
       </ion-item>
       <ion-item class="ion-margin-bottom">
         <ion-icon name="md-key" ></ion-icon>
-        <ion-input type="password" placeholder="password"></ion-input>
+        <ion-input type="password" placeholder="password" name="password" [(ngModel)]="pass"></ion-input>
       </ion-item>
-      <ion-button  expand="block" class="login" (click)="login()" >
+      <ion-button  expand="block" class="login" (click)="loginUser()" >
         Login
       </ion-button>
       <p>

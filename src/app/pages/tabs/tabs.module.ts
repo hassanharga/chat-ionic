@@ -9,8 +9,24 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: '',
-    component: TabsPage
+    path: 'tabs',
+    component: TabsPage,
+    children: [
+      {
+        path: 'streams',
+        children: [
+          {
+            path: '',
+            loadChildren: '../streams/streams.module#StreamsPageModule'
+          }
+        ]
+      },
+      {
+        path: '',
+        redirectTo: 'streams',
+        pathMatch: 'full'
+      }
+    ]
   }
 ];
 
@@ -23,4 +39,4 @@ const routes: Routes = [
   ],
   declarations: [TabsPage]
 })
-export class TabsPageModule {}
+export class TabsPageModule { }
