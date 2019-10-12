@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     const token = this.tokenSer.getToken();
     if (token) {
-      this.router.navigate(['tabs/streams']);
+      this.router.navigate(['tabs']);
     } else {
       this.router.navigate(['']);
     }

@@ -9,8 +9,9 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
+  
     children: [
       {
         path: 'streams',
@@ -19,15 +20,25 @@ const routes: Routes = [
             path: '',
             loadChildren: '../streams/streams.module#StreamsPageModule'
           }
-        ]
+        ]  
+      },
+      {
+        path: 'people',
+        children: [
+          {
+            path: '',
+            loadChildren: '../people/people.module#PeoplePageModule'
+          }
+        ]  
       },
       {
         path: '',
         redirectTo: 'streams',
         pathMatch: 'full'
       }
-    ]
+    ],
   }
+  
 ];
 
 @NgModule({

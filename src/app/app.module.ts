@@ -9,7 +9,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthInterceptor } from './providers/auth.interceptor';
-import {TabsPageModule} from './pages/tabs/tabs.module';
+// import {TabsPageModule} from './pages/tabs/tabs.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -24,7 +24,7 @@ import {TabsPageModule} from './pages/tabs/tabs.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    TabsPageModule
+    // TabsPageModule
   ],
   providers: [
     StatusBar,
