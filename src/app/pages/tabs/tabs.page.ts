@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from 'src/app/providers/users.service';
 
 @Component({
   selector: 'app-tabs',
@@ -8,12 +7,9 @@ import { UsersService } from 'src/app/providers/users.service';
 })
 export class TabsPage implements OnInit {
 
-  constructor(private userSer: UsersService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.userSer.getAllUsers().subscribe(
-      data => console.log(data)
-    );
   }
 
 }

@@ -11,7 +11,6 @@ const routes: Routes = [
   {
     path: '',
     component: TabsPage,
-  
     children: [
       {
         path: 'streams',
@@ -20,7 +19,7 @@ const routes: Routes = [
             path: '',
             loadChildren: '../streams/streams.module#StreamsPageModule'
           }
-        ]  
+        ]
       },
       {
         path: 'people',
@@ -29,7 +28,7 @@ const routes: Routes = [
             path: '',
             loadChildren: '../people/people.module#PeoplePageModule'
           }
-        ]  
+        ]
       },
       {
         path: '',
@@ -38,7 +37,7 @@ const routes: Routes = [
       }
     ],
   }
-  
+
 ];
 
 @NgModule({

@@ -1,9 +1,70 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>streams</ion-title>
+    <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="segment">
+      <ion-segment-button>
+        <ion-label>Posts</ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-label>Top Posts</ion-label>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <!-- <div [ngSwitch]="conditionExpression">
+    <div *ngSwitchCase="expression">output</div>
+    <div *ngSwitchDefault>output2</div>
+  </div> -->
+  <div>
+    <ion-list *ngIf='isPost'>
+      <ion-item>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-item>
+                <div class="header">
+                  <div>
+                    <ion-avatar>
+                      <img src="../../../assets/icon/favicon.png" />
+                    </ion-avatar>
+                  </div>
+                  <div>
+                    <h2>Hassan</h2>
+                    <p> 5 hours</p>
+                    <p>cairo</p>
+                  </div>
+                </div>
+              </ion-item>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="post-text">
+              <p>this is post</p>
+            </div>
+            <div>
+              <img src="../../../assets/icon/favicon.png" alt="post-image">
+            </div>
+          </ion-card-content>
+          <ion-row>
+            <ion-col style="text-align: center;">
+              <ion-button (click)="onClick()">
+                <ion-icon slot="start" name="thumbs-up"></ion-icon>
+                <div>10</div>
+              </ion-button>
+            </ion-col>
+            <ion-col style="text-align: center;">
+              <ion-button (click)="onClick()">
+                <ion-icon slot="start" name="text"></ion-icon>
+                <div>10</div>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngIf='isTopPosts'>
+      <h1>topstreams</h1>
+    </ion-list>
+  </div>
 </ion-content>
