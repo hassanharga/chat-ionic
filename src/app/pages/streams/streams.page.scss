@@ -1,8 +1,15 @@
 ion-segment {
     background: #64b5f6;
+    // color: white;
 }
+.sc-ion-segment-md-h {
+    --color-checked: white !important;
+}
+ion-content {
+    --ion-background-color: var(--initial-color);
 ion-card {
     width: 100%;
+    background: white;
     .header {
         display: flex;
         ion-avatar {
@@ -26,4 +33,5 @@ ion-card {
             margin: auto;
         }
     }
+}
 }

@@ -1,6 +1,9 @@
 ion-tab-button, ion-tab-bar {
-    border: none !important;
+    // border: 2px solid white !important;
     background: #64b5f6;
+}
+ion-tab-bar {
+    --color-selected: white;
 }
 // ion-label, ion-icon {
 //     color: white;

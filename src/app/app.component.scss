@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Open Sans';
+    font-style: lighter;
+    src: url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+  }
+
+*:not(ion-icon)  {
+    --ion-font-family: 'Open Sans';
+    font-family: "Open Sans"; //!important;
+  }

@@ -12,17 +12,13 @@
 </ion-header>
 
 <ion-content>
-  <!-- <div [ngSwitch]="conditionExpression">
-    <div *ngSwitchCase="expression">output</div>
-    <div *ngSwitchDefault>output2</div>
-  </div> -->
-  <div>
-    <ion-list *ngIf='isPost'>
+  <div [ngSwitch]="segment">
+    <ion-list *ngSwitchCase="'ion-sb-0'">
       <ion-item>
         <ion-card>
           <ion-card-header>
             <ion-card-title>
-              <ion-item>
+              <!-- <ion-item> -->
                 <div class="header">
                   <div>
                     <ion-avatar>
@@ -35,7 +31,7 @@
                     <p>cairo</p>
                   </div>
                 </div>
-              </ion-item>
+              <!-- </ion-item> -->
             </ion-card-title>
           </ion-card-header>
           <ion-card-content>
@@ -63,7 +59,7 @@
         </ion-card>
       </ion-item>
     </ion-list>
-    <ion-list *ngIf='isTopPosts'>
+    <ion-list *ngSwitchCase="'ion-sb-1'">
       <h1>topstreams</h1>
     </ion-list>
   </div>

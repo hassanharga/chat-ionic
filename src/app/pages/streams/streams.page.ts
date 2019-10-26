@@ -19,15 +19,15 @@ export class StreamsPage implements OnInit {
   }
 
   segmentChanged(e) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     this.segment = e.target.value;
-    if (e.target.value === 'ion-sb-0') {
-      this.isPost = true;
-      this.isTopPosts = false;
-    } else {
-      this.isPost = false;
-      this.isTopPosts = true;
-    }
+    // if (e.target.value === 'ion-sb-0') {
+    //   this.isPost = true;
+    //   this.isTopPosts = false;
+    // } else {
+    //   this.isPost = false;
+    //   this.isTopPosts = true;
+    // }
   }
 
 }
