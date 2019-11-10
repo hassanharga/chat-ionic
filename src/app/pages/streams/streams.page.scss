@@ -5,6 +5,9 @@ ion-segment {
 .sc-ion-segment-md-h {
     --color-checked: white !important;
 }
+ion-item{
+    border-bottom: unset;
+}
 ion-content {
     --ion-background-color: var(--initial-color);
 ion-card {
@@ -18,20 +21,32 @@ ion-card {
         }
         h2 {
             margin: 0 10px;
+            color: var(--initial-color);
+            font-size: 18px;
+
         }
         p {
             margin: 1px 10px;
+            font-size: 15px;
         }
     }
     ion-card-content {
+        border-bottom: 1px solid var(--initial-color);
         .post-text {
             margin: 10px 0;
         }
         img {
             width: 200px;
             height: 200px;
-            margin: auto;
+            // margin: auto;
         }
     }
 }
+}
+.item-inner{
+    border-bottom: unset;
+}
+
+::ng-deep .item-inner{
+    border-bottom: unset;
 }

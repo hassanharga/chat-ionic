@@ -14,45 +14,47 @@
 <ion-content>
   <div [ngSwitch]="segment">
     <ion-list *ngSwitchCase="'ion-sb-0'">
-      <ion-item>
+      <ion-item *ngFor="let post of posts">
         <ion-card>
           <ion-card-header>
             <ion-card-title>
               <!-- <ion-item> -->
-                <div class="header">
-                  <div>
-                    <ion-avatar>
-                      <img src="../../../assets/icon/favicon.png" />
-                    </ion-avatar>
-                  </div>
-                  <div>
-                    <h2>Hassan</h2>
-                    <p> 5 hours</p>
-                    <p>cairo</p>
-                  </div>
+              <div class="header">
+                <div>
+                  <ion-avatar>
+                    <img
+                      src="http://res.cloudinary.com/hassanharga/image/upload/v{{post.user.picVersion}}/{{post.user.picId}}" />
+                  </ion-avatar>
                 </div>
+                <div>
+                  <h2 class="username">{{post.username}}</h2>
+                  <p class="date">{{post.created | date: 'dd/MM/yyyy'}}</p>
+                  <p class="date" *ngIf="post.user && post.user.city">{{post.user.city}},{{post.user.country}}</p>
+                </div>
+              </div>
               <!-- </ion-item> -->
             </ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <div class="post-text">
-              <p>this is post</p>
+              <p>{{post.post}}</p>
             </div>
-            <div>
-              <img src="../../../assets/icon/favicon.png" alt="post-image">
+            <div *ngIf="post.imgId && post.imgVersion">
+              <img src="http://res.cloudinary.com/hassanharga/image/upload/v{{post.imgVersion}}/{{post.imgId}}"
+                alt="post-image">
             </div>
           </ion-card-content>
           <ion-row>
             <ion-col style="text-align: center;">
               <ion-button (click)="onClick()">
                 <ion-icon slot="start" name="thumbs-up"></ion-icon>
-                <div>10</div>
+                <div>{{post.totalLikes}}</div>
               </ion-button>
             </ion-col>
             <ion-col style="text-align: center;">
               <ion-button (click)="onClick()">
                 <ion-icon slot="start" name="text"></ion-icon>
-                <div>10</div>
+                <div>{{post.comments.length}}</div>
               </ion-button>
             </ion-col>
           </ion-row>
@@ -60,7 +62,52 @@
       </ion-item>
     </ion-list>
     <ion-list *ngSwitchCase="'ion-sb-1'">
-      <h1>topstreams</h1>
+      <ion-item *ngFor="let post of topPosts">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              <!-- <ion-item> -->
+              <div class="header">
+                <div>
+                  <ion-avatar>
+                    <img
+                      src="http://res.cloudinary.com/hassanharga/image/upload/v{{post.user.picVersion}}/{{post.user.picId}}" />
+                  </ion-avatar>
+                </div>
+                <div>
+                  <h2 class="username">{{post.username}}</h2>
+                  <p class="date">{{post.created | date: 'dd/MM/yyyy'}}</p>
+                  <p class="date" *ngIf="post.user && post.user.city">{{post.user.city}},{{post.user.country}}</p>
+                </div>
+              </div>
+              <!-- </ion-item> -->
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="post-text">
+              <p>{{post.post}}</p>
+            </div>
+            <div *ngIf="post.imgId && post.imgVersion">
+              <img src="http://res.cloudinary.com/hassanharga/image/upload/v{{post.imgVersion}}/{{post.imgId}}"
+                alt="post-image">
+            </div>
+          </ion-card-content>
+          <ion-row>
+            <ion-col style="text-align: center;">
+              <ion-button (click)="onClick()">
+                <ion-icon slot="start" name="thumbs-up"></ion-icon>
+                <div>{{post.totalLikes}}</div>
+              </ion-button>
+            </ion-col>
+            <ion-col style="text-align: center;">
+              <ion-button (click)="onClick()">
+                <ion-icon slot="start" name="text"></ion-icon>
+                <div>{{post.comments.length}}</div>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-item>
     </ion-list>
   </div>
 </ion-content>

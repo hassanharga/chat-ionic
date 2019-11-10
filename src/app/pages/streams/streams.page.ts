@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/providers/users.service';
+import { PostService } from 'src/app/providers/post.service';
 
 @Component({
   selector: 'app-streams',
@@ -10,11 +11,17 @@ export class StreamsPage implements OnInit {
   segment: any = 'ion-sb-0';
   isPost = true;
   isTopPosts = false;
-  constructor(private userSer: UsersService) { }
+  posts: any = [];
+  topPosts: any = [];
+  constructor(private userSer: UsersService, private postSer: PostService) { }
 
   ngOnInit() {
-    this.userSer.getAllUsers().subscribe(
-      data => console.log(data)
+    this.postSer.getAllPosts().subscribe(
+      data => {
+        console.log(data);
+        this.posts = data.posts;
+        this.topPosts = data.topPosts;
+      }
     );
   }
 
