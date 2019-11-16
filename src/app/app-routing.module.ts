@@ -6,6 +6,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
   { path: 'tabs', loadChildren: './pages/tabs/tabs.module#TabsPageModule' },
+  // { path: 'post/:id', loadChildren: './pages/comments/comments.module#CommentsPageModule' },
+
 
 ];
 

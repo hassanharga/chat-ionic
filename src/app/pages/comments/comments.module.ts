@@ -5,15 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { StreamsPage } from './streams.page';
+import { CommentsPage } from './comments.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: StreamsPage,
-  },
-  { path: 'post/:id', loadChildren: '../comments/comments.module#CommentsPageModule' }
-
+    component: CommentsPage
+  }
 ];
 
 @NgModule({
@@ -23,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [StreamsPage]
+  declarations: [CommentsPage]
 })
-export class StreamsPageModule { }
+export class CommentsPageModule {}

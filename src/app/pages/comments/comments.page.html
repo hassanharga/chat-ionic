@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/streams"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Comments</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-textarea placeholder='Write comment' [(ngModel)]='comment'>
+
+          </ion-textarea>
+
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button expand="block" (click)="addComment()">
+          Add Comment
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+
+
+        <ion-list lines="none">
+          <ion-item *ngIf="post">
+            <div class="post">
+              <div class="header">
+                <div>
+                  <ion-avatar>
+                    <img
+                      src="http://res.cloudinary.com/hassanharga/image/upload/v{{post.user.picVersion}}/{{post.user.picId}}" />
+                  </ion-avatar>
+                </div>
+                <div>
+                  <h2 class="username">{{post.username}}</h2>
+                  <p class="date">{{post.created | date: 'dd/MM/yyyy'}}</p>
+                  <p class="date" *ngIf="post.user && post.user.city">{{post.user.city}},{{post.user.country}}</p>
+                </div>
+              </div>
+              <div class="post-text">
+                <p>{{post.post}}</p>
+              </div>
+              <div *ngIf="post.imgId && post.imgVersion">
+                <img src="http://res.cloudinary.com/hassanharga/image/upload/v{{post.imgVersion}}/{{post.imgId}}"
+                  alt="post-image">
+              </div>
+            </div>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

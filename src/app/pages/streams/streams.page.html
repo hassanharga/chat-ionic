@@ -13,7 +13,7 @@
 
 <ion-content>
   <div [ngSwitch]="segment">
-    <ion-list *ngSwitchCase="'ion-sb-0'">
+    <ion-list *ngSwitchCase="'ion-sb-0'" lines="none">
       <ion-item *ngFor="let post of posts">
         <ion-card>
           <ion-card-header>
@@ -46,13 +46,13 @@
           </ion-card-content>
           <ion-row>
             <ion-col style="text-align: center;">
-              <ion-button (click)="onClick()">
+              <ion-button (click)="likePost(post)">
                 <ion-icon slot="start" name="thumbs-up"></ion-icon>
                 <div>{{post.totalLikes}}</div>
               </ion-button>
             </ion-col>
             <ion-col style="text-align: center;">
-              <ion-button (click)="onClick()">
+              <ion-button (click)="openCommentBox(post)">
                 <ion-icon slot="start" name="text"></ion-icon>
                 <div>{{post.comments.length}}</div>
               </ion-button>
@@ -61,7 +61,7 @@
         </ion-card>
       </ion-item>
     </ion-list>
-    <ion-list *ngSwitchCase="'ion-sb-1'">
+    <ion-list *ngSwitchCase="'ion-sb-1'" lines="none">
       <ion-item *ngFor="let post of topPosts">
         <ion-card>
           <ion-card-header>
@@ -94,13 +94,13 @@
           </ion-card-content>
           <ion-row>
             <ion-col style="text-align: center;">
-              <ion-button (click)="onClick()">
+              <ion-button (click)="likePost(post)">
                 <ion-icon slot="start" name="thumbs-up"></ion-icon>
                 <div>{{post.totalLikes}}</div>
               </ion-button>
             </ion-col>
             <ion-col style="text-align: center;">
-              <ion-button (click)="onClick()">
+              <ion-button (click)="openCommentBox(post)">
                 <ion-icon slot="start" name="text"></ion-icon>
                 <div>{{post.comments.length}}</div>
               </ion-button>
